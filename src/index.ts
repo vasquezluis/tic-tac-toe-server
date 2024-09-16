@@ -19,6 +19,11 @@ io.on("connection", (socket) => {
       from: socket.id,
     });
   });
+
+  socket.on("resetGame", () => {
+    console.log("reseting Game");
+    socket.broadcast.emit("resetGame");
+  });
 });
 
 server.listen(3000, () => {
