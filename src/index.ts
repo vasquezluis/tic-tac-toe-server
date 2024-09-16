@@ -9,13 +9,12 @@ const io = new SockerSetver(server);
 io.on("connection", (socket) => {
   console.log("New connection ", socket.id);
 
-  socket.on("value", (data) => {
-    console.log("value: ", data);
-
-    socket.broadcast.emit("value", {
+  socket.on("board", (data) => {
+    socket.broadcast.emit("board", {
       body: {
         index: data.index,
         value: data.value,
+        player: data.player,
       },
       from: socket.id,
     });
