@@ -83,6 +83,8 @@ function generateRoomCode(): string {
   return uuidv4().slice(0, 6); // Generate a 6-character unique code
 }
 
-server.listen(3000, () => {
-  console.log(`Server listening on http://localhost:${3000}`);
+const PORT = process.env.PORT || 3000;
+
+server.listen(PORT, () => {
+  console.log(`Server listening on http://localhost:${PORT}`);
 });
